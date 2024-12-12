@@ -5,14 +5,24 @@ require "../../config/config.php";
 $id = $_POST['academicianId'];
 
 // Veritabanında sorgulama yap
-$query = "SELECT * FROM academics WHERE id = $id";
+$query = "
+SELECT 
+    a.*, 
+    d.name AS department_name
+FROM 
+    academics a
+JOIN 
+    departments d ON a.department_id = d.id
+WHERE 
+    a.id = $id";
+
 $result = mysqli_query($connection, $query);
 $academician = mysqli_fetch_assoc($result);
 
 if ($result) {
     $query = "
     SELECT
-    c.id AS course_id,
+        c.id AS course_id,
         c.name AS course_name
     FROM
         academics_courses ac

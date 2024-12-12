@@ -8,6 +8,7 @@ SELECT
     e.id AS exam_id,
     e.date AS exam_date,
     e.type AS exam_type,
+    e.percent AS exam_percent,
     e.course_id AS course_id,
     c.name AS course_name
 FROM
