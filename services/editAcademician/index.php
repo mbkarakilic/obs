@@ -19,8 +19,8 @@ if ($result) {
 
     if ($deleteResult) {
         // Yeni kurs ilişkilerini ekle
-        foreach ($courses as $course) {
-            $courseId = $course['course_id']; // Kurs ID'sini al
+        foreach ($courses as $semesterType) {
+            $courseId = $semesterType['course_id']; // Kurs ID'sini al
             $insertQuery = "INSERT INTO academics_courses (academic_id, course_id) VALUES ($id, $courseId)";
             $insertResult = mysqli_query($connection, $insertQuery);
 
