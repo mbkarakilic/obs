@@ -8,6 +8,7 @@ $query = "
         c.id AS course_id,
         c.name AS course_name,
         c.semester AS course_semester,
+        c.isFinished as course_isFinished,
         d.name AS department_name
     FROM
         academics_courses ac
